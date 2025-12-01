@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Dancing+Script&family=Young+Serif&display=swap');
+
+.card-portfolio {
+    height: 15em;
+    width: 15em;
+
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: rgba(255, 255, 255, 0.219);
+    border: 0.2 solid black;
+
+    transition: 1s;
+    padding: 1em;
+    margin: 1em;
+    font-family: 'Cinzel', serif;
+    font-size: 1.2em;
+    user-select : none
+}
+
+.portfolio { 
+    height: 15em;
+    width: 15em;
+    border-radius: 1em;
+    position: absolute; 
+}
+
+ 
+.desc-portfolio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+    height: 15em;
+    width: 15em;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.664);
+    border-radius: 1em;
+    z-index: 100; 
+    opacity: 0;
+    transition: 0.5s;
+}
+.desc-portfolio:hover {
+ 
+    opacity: 1;
+    transition: 0.5s;
+}
+ 

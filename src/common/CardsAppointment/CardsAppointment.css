@@ -1,0 +1,136 @@
+  
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Dancing+Script&family=Young+Serif&display=swap');
+
+  
+  .card-appointment {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    min-width: 50%;
+    max-width: 80%;
+    height: auto;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 2em 1em 2em 1em;
+    border-radius: 2em;
+    background-color: rgb(41, 41, 43);
+    margin: 3em; 
+    padding-right: 2em;
+    padding-left: 2em;
+    font-family: 'Cinzel', serif;
+  }
+
+  .card-appointment-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    transition-duration: 2s;
+  }
+
+  .date-category{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+  }
+   
+  .center, 
+  .right {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column; 
+    display: flex;
+    justify-content: space-between; 
+    margin-right:5em ;
+  }
+
+  .left{
+    margin-left: 2em;
+    height: 14em;
+    width: 19em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5em;
+  }
+  
+  .nameProduct{
+    font-size: 1.3em;
+    margin-right: 1em;
+  }
+
+
+  .card-appointment img {
+    border-radius: 10%;
+    width: 60%;
+    margin-top: 1.25em;
+  }
+
+  .desc-col{
+    margin-top: 1em;
+    font-size: 1.5em;
+  }
+
+  .desc-row{
+    margin-right: 1em;
+    margin-left: 2em;
+    font-size: 1.2em;
+  }
+
+  .status,
+  .client_name,
+  .client_email,
+  .date,
+  .shift,
+  .service {
+    margin-right: 3em;
+  }
+
+  .button-spoiler {
+    width: 7em;
+    display: flex;
+    position:relative;
+    left: 1em;
+    margin-right:1em;
+
+  }
+
+  .tattoo-artist-card-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  } 
+
+  .button-update-appointment {
+    cursor: pointer;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 3em;
+    width: 3em;
+    margin-bottom: 2em;
+  }
+
+  .button-update-appointment img {
+    cursor: pointer;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 2em;
+    width: 2em;
+  }
+
+  .buttons-card-appointments{
+    display: flex;
+    justify-content: flex-start;
+    align-self: start;
+    height: 0.5em;
+    position: relative;
+    right: 3.5em;
+
+  }
+
+  

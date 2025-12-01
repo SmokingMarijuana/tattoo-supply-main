@@ -1,0 +1,39 @@
+.workers-body{
+  height: 100%;
+  width: 100vw;
+  background-color: rgb(23, 23, 23);
+  display: flex;
+  justify-content: center; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;  
+  z-index: -100;
+    
+}
+
+
+.worker-Roster{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 11em;
+}
+
+
+.pagination-workers{
+    width: 100vw;
+    height: 5em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    top: 6.5em;
+}
+
+.worker{
+    background-size: cover;
+  }
+  
+ 
+ 

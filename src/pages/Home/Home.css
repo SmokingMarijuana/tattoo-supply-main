@@ -1,0 +1,79 @@
+.home-body{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(63, 95, 95);
+    display: flex;
+    justify-content: center;
+    background-image:url(../../assets/background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+    top: 0;
+    z-index: -100;
+    
+}
+
+.linkButtonDesign{
+    width: 5em;
+    height: 3em;
+    background-color: rgb(15, 157, 18);
+    border: 0.2em solid black; 
+    color: rgb(199, 135, 135); 
+    cursor: pointer;
+    margin: 1em;
+}
+
+.title{
+    font-family: 'Cinzel', serif; 
+    margin-top: 0em;
+    font-size:2.5em;
+}
+
+ 
+.logo{
+    height:15em;
+    min-width: 15em; 
+    background-image:url(../../assets/42cea1eb-e7ef-449e-a2ec-25301714895c.png);
+    z-index: 100;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;   
+    margin-top: 0em;  
+}
+
+ .home-justify{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ }
+
+.landing-button {
+    padding: 1.3em 3em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    height: 2em;
+    margin-top: 2em;
+    
+  }
+  
+  .landing-button:hover {
+    background-color: #23c483;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
+  
+  .landing-button:active {
+    transform: translateY(-1px);
+  }
