@@ -11,6 +11,7 @@ export const Header = () => {
 
     const [decodedToken, setDecodedToken] = useState(null);
     const [tokenExpired, setTokenExpired] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         if (!rdxToken) {
@@ -37,83 +38,120 @@ export const Header = () => {
 
     const logOutMe = () => {
         dispatch(logout());
+        setIsMobileMenuOpen(false); // chiudo il menu su mobile dopo logout
     };
 
-    return (
-        <header className="header">
-            {/* Scritta centrale in alto */}
-            <div className="header-brand">
-                TATTOO-SUPPLY
-            </div>
+    const renderLinks = () => (
+        <>
+            <LinkButton
+                className={"header-button"}
+                path={"/home"}
+                title={"Shop"}
+            />
+            <LinkButton
+                className={"header-button"}
+                path={"/workers"}
+                title={"Marchi"}
+            />
+            <LinkButton
+                className={"header-button"}
+                path={"/portfolio"}
+                title={"Offerte"}
+            />
 
-            {/* Navbar sotto */}
-            <div className="button-container">
-                <LinkButton
-                    className={"header-button"}
-                    path={"/home"}
-                    title={"Home"}
-                />
-                <LinkButton
-                    className={"header-button"}
-                    path={"/workers"}
-                    title={"Workers"}
-                />
-                <LinkButton
-                    className={"header-button"}
-                    path={"/portfolio"}
-                    title={"Portfolio"}
-                />
-
-                {rdxToken && tokenExpired === false ? (
-                    <>
+            {rdxToken && tokenExpired === false ? (
+                <>
+                    <LinkButton
+                        className={"header-button"}
+                        path={"/profile"}
+                        title={"Profile"}
+                    />
+                    <LinkButton
+                        className={"header-button"}
+                        path={"/appointments"}
+                        title={"Appointments"}
+                    />
+                    <div className='header-button' onClick={logOutMe}>
                         <LinkButton
-                            className={"header-button"}
-                            path={"/profile"}
-                            title={"Profile"}
-                        />
-                        <LinkButton
-                            className={"header-button"}
-                            path={"/appointments"}
-                            title={"Appointments"}
-                        />
-                        <div className='header-button' onClick={logOutMe}>
-                            <LinkButton
-                                classButton={"linkButtonDesign"}
-                                path={"/login"}
-                                title={"Log out"}
-                            />
-                        </div>
-
-                        {decodedToken && decodedToken.role === "super_admin" && (
-                            <>
-                                <LinkButton
-                                    className={"header-button"}
-                                    path={"/getAllUsers"}
-                                    title={"All Users"}
-                                />
-                                <LinkButton
-                                    className={"header-button"}
-                                    path={"/getAllAppointments"}
-                                    title={"Get All Appointments"}
-                                />
-                            </>
-                        )}
-                    </>
-                ) : (
-                    <>
-                        <LinkButton
-                            className={"header-button"}
+                            classButton={"linkButtonDesign"}
                             path={"/login"}
-                            title={"Login"}
+                            title={"Log out"}
                         />
-                        <LinkButton
-                            className={"header-button"}
-                            path={"/register"}
-                            title={"Register"}
-                        />
-                    </>
-                )}
-            </div>
-        </header>
+                    </div>
+
+                    {decodedToken && decodedToken.role === "super_admin" && (
+                        <>
+                            <LinkButton
+                                className={"header-button"}
+                                path={"/getAllUsers"}
+                                title={"All Users"}
+                            />
+                                <LinkButton
+                                className={"header-button"}
+                                path={"/getAllAppointments"}
+                                title={"Get All Appointments"}
+                            />
+                        </>
+                    )}
+                </>
+            ) : (
+                <>
+                    <LinkButton
+                        className={"header-button"}
+                        path={"/login"}
+                        title={"Login"}
+                    />
+                    <LinkButton
+                        className={"header-button"}
+                        path={"/register"}
+                        title={"Registrati"}
+                    />
+
+                    <LinkButton
+                        className={"header-button"}
+                        path={"/register"}
+                        title={"Categorie"}
+                    />
+                </>
+            )}
+        </>
+    );
+
+    return (
+        <>
+            <header className="header">
+                {/* Scritta centrale in alto */}
+                <div className="header-bar">
+                    <div className="header-brand">
+                        TATTOO SUPPLY
+                    </div>
+                </div>
+
+                {/* Navbar sotto (desktop, grazie al CSS) */}
+                <div className="button-container">
+                    {renderLinks()}
+                </div>
+
+                {/* Hamburger (solo mobile, gestito dal CSS) */}
+                <div
+                    className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}
+                    onClick={() => setIsMobileMenuOpen(prev => !prev)}
+                >
+                    <span className="hamburger-line" />
+                    <span className="hamburger-line" />
+                    <span className="hamburger-line" />
+                </div>
+            </header>
+
+            {/* Menu mobile a tendina sotto la navbar */}
+            {isMobileMenuOpen && (
+                <nav
+                    className="mobile-menu"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                >
+                    {renderLinks()}
+                </nav>
+            )}
+        </>
     );
 };

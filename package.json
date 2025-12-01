@@ -28,7 +28,7 @@
     "@tiptap/react": "^2.1.12",
     "@tiptap/starter-kit": "^2.1.12",
     "axios": "^1.6.1",
-    "bootstrap": "^5.3.2",
+    "bootstrap": "^5.3.8",
     "dayjs": "^1.11.10",
     "embla-carousel-react": "^7.1.0",
     "jwt-decode": "^4.0.0",

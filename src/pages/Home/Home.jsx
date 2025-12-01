@@ -7,7 +7,7 @@ export const Home = () => {
         <div className="home-body">
             <div className="home-justify">
                 <div className="logo"><img src="" alt="" /></div>
-                <div className="title">Malcriada <br></br> Tattoo Studio</div>
+                <div className="title">Tattoo <br></br> Supply Shop</div>
                 <LinkButton
                     className={"landing-button"}
                     path={"/createAppointment"}
