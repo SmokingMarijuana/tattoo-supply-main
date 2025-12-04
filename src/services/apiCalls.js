@@ -85,4 +85,8 @@ export const deleteAppointment = async (token, id) => {
   })
 };
 
+export const getAllProducts = async () => {
+  return await axios.get(`http://localhost:5000/api/products`);
+};
+
 

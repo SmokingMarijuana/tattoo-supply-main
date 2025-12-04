@@ -45,7 +45,7 @@ export const Header = () => {
         <>
             <LinkButton
                 className={"header-button"}
-                path={"/home"}
+                path={"/shop"}
                 title={"Shop"}
             />
             <LinkButton
@@ -121,10 +121,12 @@ export const Header = () => {
         <>
             <header className="header">
                 {/* Scritta centrale in alto */}
-                <div className="header-bar">
-                    <div className="header-brand">
-                        TATTOO SUPPLY
-                    </div>
+                <div className="header-bar header-button">
+                    <LinkButton
+                        className={"header-brand"}
+                        path={"/"}
+                        title={"TATTOO SUPPLY"}
+                    />
                 </div>
 
                 {/* Navbar sotto (desktop, grazie al CSS) */}

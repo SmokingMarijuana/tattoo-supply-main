@@ -25,7 +25,33 @@
 }
 
 .hero-text:hover {
-  text-shadow: 20px 20px 40px rgba(0, 0, 0, 0.7);
+  text-shadow: 80px 80px 80px rgba(0, 0, 0, 0.9);
   /*transform: translateY(-1px);  PER SCOPRI I PRODOTTI*/ 
 }
 
+.hero-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  margin-top: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-button:hover {
+  background-color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-button:active {
+  transform: translateY(-1px);
+}

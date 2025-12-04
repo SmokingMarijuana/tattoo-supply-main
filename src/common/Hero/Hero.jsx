@@ -6,9 +6,9 @@ export const Hero = () => {
     <div className="hero-image">
       <div className = "text-container">
         <div className="hero-text">
-          <h1><b>Prodotti professionali per tatuatori</b></h1>
+          <h1><b>Prodotti professionali<br></br> per tatuatori</b></h1><br></br>
           <p>Aghi, inchiostri e attrezzatura di qualità per il tuo studio.</p>
-          <button>Scopri i prodotti</button>
+          <button href = "/shop">Scopri i prodotti</button>
         </div>
       </div>
     </div>

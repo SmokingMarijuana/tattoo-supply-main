@@ -11,13 +11,15 @@ import { CreateAppointment } from '../CreateAppointment/CreateAppointment';
 import { UpdateAppointment } from '../UpdateAppointment/UpdateAppointment';
 import { GetAllUsers } from '../GetAllUsers/GetAllUsers';
 import { GetAllAppointments } from '../GetAllAppointments/GetAllAppointments';
+import { Products } from '../Products/Products';
 
 export const Body = () => {
      return (
-         <>
+             <>
             <Routes>
                 <Route path="*" element={<Navigate to="/"/>}/>
                 <Route path="/" element={<Home />}/>
+                <Route path="/shop" element={<Products />}/>
                 <Route path="/login" element={<Login />}/>
                 <Route path="/register" element={<Register />}/>
                 <Route path="/profile" element={<Profile />}/>

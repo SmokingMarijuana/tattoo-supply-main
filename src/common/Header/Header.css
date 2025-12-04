@@ -18,7 +18,7 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     box-sizing: border-box;
-
+    cursor: default;
     display: flex;
     flex-direction: column;   /* brand sopra, menu sotto */
     align-items: center;
@@ -29,6 +29,7 @@
 .header-brand {
     font-family: 'Cinzel', serif;
     font-size: clamp(1.2rem, 4vw, 1.8rem);
+    
     letter-spacing: 0.25em;
     color: white;
     text-align: center;
@@ -146,21 +147,12 @@
 /* -------------------- BREAKPOINT: TABLET / MOBILE -------------------- */
 
 @media (max-width: 1100px) {
-    :root {
-        /* header leggermente più basso su schermi piccoli */
-        --header-height: 70px;
-    }
+    
 
     .header {
         padding: 0.5rem 1rem 0.5rem;
     }
 
-    .header-brand {
-        font-size: clamp(1.4rem, 6vw, 1.6rem);
-        letter-spacing: 0.2em;
-        margin-bottom: 0.25rem;
-        padding-right: 3rem; /* per non sovrapporsi all’hamburger */
-    }
 
     /* Nascondo i bottoni inline su mobile/tablet */
     .button-container {
@@ -175,29 +167,14 @@
 
 /* -------------------- BREAKPOINT: TELEFONI PICCOLI (iPhone SE ecc.) -------------------- */
 
-@media (max-width: 480px) {
-    .header {
-        padding: 0.35rem 0.75rem 0.4rem;
-    }
 
+
+/*
+MEDIA QUERY MIE
+*/
+
+@media (max-width:900px) {
     .header-brand {
-        font-size: clamp(1.1rem, 5vw, 1.3rem);
-        letter-spacing: 0.15em;
-    }
-
-    .hamburger {
-        width: 24px;
-        height: 20px;
-        right: 0.75rem;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .hamburger-line {
-        height: 3px;
-    }
-
-    .mobile-menu .header-button {
-        font-size: 0.95rem;
+        font-size: 3rem;
     }
 }
