@@ -3,6 +3,7 @@ import "./Products.css";
 import "../../common/ProductList/ProductList.css";
 import { getAllProducts } from "../../services/apiCalls";
 import ProductCard from "../ProductCard/ProductCard";
+import ProductFilter from "../ProductFilter/ProductFilter";
 
 export const Products = () => {
   const [products, setProducts] = useState([]);
@@ -30,11 +31,11 @@ export const Products = () => {
 
   return (
 
-    
     <div className="products-body">
       <div className="products-header">
         <h1 className="products-title">I nostri prodotti</h1>
       </div>
+    <ProductFilter />
 
       {loading && <div className="products-loading">Caricamento prodotti...</div>}
       {error && <div className="products-error">{error}</div>}

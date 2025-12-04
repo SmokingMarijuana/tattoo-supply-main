@@ -38,10 +38,8 @@ app.get("/api/products", (req, res) => {
     });  
 });
 
-
-
-app.get("/api/categories", (req, res) => {
-    const query = "SELECT * FROM categories";
+app.get("/api/products/categories/category", (req, res) => {
+    const query = "SELECT name AS nome, brand, price AS prezzo FROM products";
 
     db.query(query, (err, results) => {
         if(err) {
@@ -51,6 +49,18 @@ app.get("/api/categories", (req, res) => {
     });  
 });
 
+app.get("/api/products/category/:id", (req, res) => {
+    const categoryId = req.params.id;
+    const query = "SELECT name AS nome, brand, price AS prezzo FROM products WHERE category_id=?"
+
+
+       db.query(query, [categoryId], (err, results) => {
+        if(err) {
+            return res.status(500).json({error: "Errore query database"});
+        }
+        res.json(results);
+    });
+})
 
 //Avvio server backend
 app.listen(5000, () => console.log("Backend API running on port 5000"));
