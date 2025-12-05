@@ -47,6 +47,7 @@
     font-family: 'Cinzel', serif;
     color: white;
     width: auto; /* shrink to content so everything can be centered */
+    border: 1px solid red;
 }
 
 /* Bottone singolo */
@@ -187,4 +188,11 @@ MEDIA QUERY MIE
     .header-brand {
         font-size: 5rem;
     }
+}
+
+.carrello {
+    filter: invert(1);
+}
+
+.relative {
 }
