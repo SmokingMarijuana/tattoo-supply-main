@@ -5,8 +5,11 @@ import { Body } from './pages/Body/Body'
 function App() {
   return ( 
       <>
+      <div className="main-content">
+
         <Header />
         <Body />
+      </div>
       </>
   );
 }

@@ -1,15 +1,20 @@
-.products-body {
+.products-page {
+  display: flex;
   width: 100vw;
   min-height: 100vh;
-  background-image: url('https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  background-color: #222222;
+}
+
+.products-main-content {
+  flex-grow: 1;
+  padding: 20px;
   padding-top: 80px;
   display: flex;
   flex-direction: column;
-  display:block;
+}
+
+.products-container {
+  flex-grow: 1;
 }
 
 .products-header {
@@ -17,7 +22,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3rem 1rem;
+  padding: 1rem 1rem;
   text-align: center;
 }
 
@@ -43,7 +48,7 @@
 
 /* Responsive adjustments for tablets */
 @media (max-width: 1100px) {
-  .products-body {
+  .products-main-content {
     padding-top: 75px;
   }
 
@@ -54,8 +59,16 @@
 
 /* Responsive adjustments for tablets/small devices */
 @media (max-width: 768px) {
-  .products-body {
-    padding-top: 70px;
+  .products-page {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #dee2e6;
+  }
+  .products-main-content {
+    padding-top: 20px;
   }
 
   .products-header {
@@ -69,10 +82,6 @@
 
 /* Responsive adjustments for mobile */
 @media (max-width: 480px) {
-  .products-body {
-    padding-top: 65px;
-  }
-
   .products-header {
     padding: 1.5rem 0.75rem;
   }
@@ -88,9 +97,16 @@
 .products-empty {
   font-family: 'Cinzel', serif;
   text-align: center;
-  padding: 3rem 1rem;
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
   color: white;
+  background-color: rgba(33, 37, 41, 0.85); /* Dark Grey */
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px; /* To match product-grid padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px; /* Ensure a minimum height */
+  flex-grow: 1;
 }
 
 .products-loading {
@@ -107,55 +123,6 @@
   font-style: italic;
 }
 
-/* Table styles */
-.products-table-wrapper{
-  width: 100%;
-  padding: 1rem 2rem 3rem 2rem;
-  overflow-x: auto;
-}
-
-.products-table{
-  width: 100%;
-  border-collapse: collapse;
-  background: rgba(255,255,255,0.03);
-}
-
-.products-table th, .products-table td{
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  color: #fff;
-  text-align: left;
-  font-family: 'Cinzel', serif;
-  font-size: 0.95rem;
-}
-
-.products-table thead th{
-  background: rgba(0,0,0,0.25);
-  position: sticky;
-  top: 0;
-}
-
-.products-table tr:hover td{
-  background: rgba(255,255,255,0.02);
-}
-
-.product-thumb{
-  width: 64px;
-  height: 64px;
-  object-fit: cover;
-  border-radius: 6px;
-}
-
-@media (max-width: 768px) {
-  .products-table th, .products-table td{
-    padding: 0.6rem 0.75rem;
-    font-size: 0.85rem;
-  }
-}
-
-
-
-
 /*
 
 FOR CARDS 04-12-2025
@@ -163,7 +130,7 @@ FOR CARDS 04-12-2025
 */
 .product-grid {
   display: grid;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px; /* spacing between cards */

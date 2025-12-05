@@ -12,8 +12,8 @@
     top: 0;
     left: 0;
     width: 100vw;
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(12px);
+    background-color: rgba(0, 0, 0, 1);
+
     -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     z-index: 1000;
@@ -28,8 +28,7 @@
 /* Brand centrale */
 .header-brand {
     font-family: 'Cinzel', serif;
-    font-size: clamp(1.2rem, 4vw, 1.8rem);
-    
+    font-size: clamp(1.2rem, 9vw, 1.8rem);
     letter-spacing: 0.25em;
     color: white;
     text-align: center;
@@ -154,6 +153,17 @@
     }
 
 
+.header-brand {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.2rem, 9vw, 1.8rem);
+    letter-spacing: 0.25em;
+    color: white;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+
     /* Nascondo i bottoni inline su mobile/tablet */
     .button-container {
         display: none;
@@ -173,8 +183,8 @@
 MEDIA QUERY MIE
 */
 
-@media (max-width:900px) {
+@media (max-width: 1100px) {
     .header-brand {
-        font-size: 3rem;
+        font-size: 5rem;
     }
 }

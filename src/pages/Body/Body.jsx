@@ -12,6 +12,7 @@ import { UpdateAppointment } from '../UpdateAppointment/UpdateAppointment';
 import { GetAllUsers } from '../GetAllUsers/GetAllUsers';
 import { GetAllAppointments } from '../GetAllAppointments/GetAllAppointments';
 import { Products } from '../Products/Products';
+import { Hero } from '../../common/Hero/Hero';
 
 export const Body = () => {
      return (
@@ -31,6 +32,13 @@ export const Body = () => {
                 <Route path="/updateAppointment" element={<UpdateAppointment />}/>
                 <Route path="/getAllUsers" element={<GetAllUsers />}/>
                 <Route path="/getAllAppointments" element={<GetAllAppointments />}/>
+                {
+                
+                /*
+                TO PUT LATER
+                <Route path="/product/:productId" element={<Product />}/>
+                <Route path="/orders" element={<Orders />}/>
+                */}
             </Routes>
          </>
      )

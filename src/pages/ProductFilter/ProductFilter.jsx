@@ -1,16 +1,18 @@
-import React from 'react'
-import './ProductFilter.css'
+import React from 'react';
+import './ProductFilter.css';
 
-export const ProductFilter = () => {
+export const ProductFilter = ({ onFilterChange }) => {
   return (
-    <div className="sidebar-wrapper">
-      <h1>ProductFilter</h1>
-      <ul>
-        <li><button>Filtra per categoria</button></li>
-        <li><button>Filtra per marchio</button></li>
-      </ul>
+    <div className="product-filter">
+      <input
+        type="text"
+        placeholder="Cerca prodotti..."
+        onChange={(e) => onFilterChange(e.target.value)}
+        className="product-filter-input"
+      />
     </div>
-  )
-}
+  );
+};
 
 export default ProductFilter;
+

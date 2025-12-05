@@ -8,7 +8,7 @@ export default function ProductCard({ image, title, brand, price }) {
   return (
     <Card
       sx={{
-        
+        backgroundColor: "#b1b1b1ff",
         maxWidth: 500,
         transition: 'transform 0.2s, box-shadow 0.2s',
         '&:hover': {

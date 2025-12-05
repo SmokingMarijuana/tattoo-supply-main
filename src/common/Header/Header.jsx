@@ -4,6 +4,7 @@ import './Header.css';
 import { LinkButton } from '../LinkButton/LinkButton';
 import { useSelector, useDispatch } from "react-redux";
 import { logout, selectToken } from "../../pages/userSlice";
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
     const dispatch = useDispatch();
@@ -112,6 +113,10 @@ export const Header = () => {
                         path={"/register"}
                         title={"Categorie"}
                     />
+                    <Link>
+                        <img src = '../../assets/shopping-cart.png' className = "w-5 min-w-5" alt ="cart"/>
+                        <p className='absolute right-[-5px] bottom[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]'>10</p>
+                    </Link>
                 </>
             )}
         </>
@@ -132,6 +137,7 @@ export const Header = () => {
                 {/* Navbar sotto (desktop, grazie al CSS) */}
                 <div className="button-container">
                     {renderLinks()}
+
                 </div>
 
                 {/* Hamburger (solo mobile, gestito dal CSS) */}
