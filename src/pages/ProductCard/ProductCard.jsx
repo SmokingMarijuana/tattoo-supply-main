@@ -10,11 +10,6 @@ export default function ProductCard({ image, title, brand, price }) {
       sx={{
         backgroundColor: "#b1b1b1ff",
         maxWidth: 500,
-        transition: 'transform 0.2s, box-shadow 0.2s',
-        '&:hover': {
-          transform: 'translateY(-5px)',
-          boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
-        },
         fontFamily: "'Cinzel', serif", // Set Cinzel font
       }}
     >
@@ -22,7 +17,6 @@ export default function ProductCard({ image, title, brand, price }) {
         <CardMedia
           component="img"
           height="220"
-          image={image}
           alt={title}
           sx={{
             objectFit: 'cover',

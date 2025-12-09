@@ -13,6 +13,10 @@ import { GetAllUsers } from '../GetAllUsers/GetAllUsers';
 import { GetAllAppointments } from '../GetAllAppointments/GetAllAppointments';
 import { Products } from '../Products/Products';
 import { Hero } from '../../common/Hero/Hero';
+import {Inchiostro} from '../Inchiostro/Inchiostro';
+import {Macchinette} from '../Macchinette/Macchinette';
+import {Accessori} from '../Accessori/Accessori';
+
 
 export const Body = () => {
      return (
@@ -32,13 +36,12 @@ export const Body = () => {
                 <Route path="/updateAppointment" element={<UpdateAppointment />}/>
                 <Route path="/getAllUsers" element={<GetAllUsers />}/>
                 <Route path="/getAllAppointments" element={<GetAllAppointments />}/>
-                {
+                <Route path='/inchiostro' element = {<Inchiostro />}></Route>
                 
-                /*
-                TO PUT LATER
-                <Route path="/product/:productId" element={<Product />}/>
-                <Route path="/orders" element={<Orders />}/>
-                */}
+                <Route path='/macchinette' element = {<Macchinette />}></Route>
+                
+                <Route path='/accessori' element = {<Accessori />}></Route>
+
             </Routes>
          </>
      )

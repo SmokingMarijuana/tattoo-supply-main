@@ -52,11 +52,6 @@ export const Header = () => {
             />
             <LinkButton
                 className={"header-button"}
-                path={"/workers"}
-                title={"Marchi"}
-            />
-            <LinkButton
-                className={"header-button"}
                 path={"/portfolio"}
                 title={"Offerte"}
             />
@@ -109,16 +104,89 @@ export const Header = () => {
                         title={"Registrati"}
                     />
 
+
+                    <Link to='/cart' className='cart-link-wrapper'>
+                        <img src={cart} className='carrello' alt="cart"/>
+                        <span className='cart-badge'>10</span>
+                    </Link>
+                </>
+            )}
+        </>
+    );
+
+    // Funzione per il menu mobile che mostra sempre Shop, Marchi, Offerte
+    const renderMobileLinks = () => (
+        <>
+            {/* Link sempre visibili nel menu mobile */}
+            <LinkButton
+                className={"header-button"}
+                path={"/shop"}
+                title={"Shop"}
+            />
+            <LinkButton
+                className={"header-button"}
+                path={"/workers"}
+                title={"Marchi"}
+            />
+            <LinkButton
+                className={"header-button"}
+                path={"/portfolio"}
+                title={"Offerte"}
+            />
+
+            {/* Link aggiuntivi in base allo stato di login */}
+            {rdxToken && tokenExpired === false ? (
+                <>
+                    <LinkButton
+                        className={"header-button"}
+                        path={"/profile"}
+                        title={"Profile"}
+                    />
+                    <LinkButton
+                        className={"header-button"}
+                        path={"/appointments"}
+                        title={"Appointments"}
+                    />
+                    <div className='header-button' onClick={logOutMe}>
+                        <LinkButton
+                            classButton={"linkButtonDesign"}
+                            path={"/login"}
+                            title={"Log out"}
+                        />
+                    </div>
+
+                    {decodedToken && decodedToken.role === "super_admin" && (
+                        <>
+                            <LinkButton
+                                className={"header-button"}
+                                path={"/getAllUsers"}
+                                title={"All Users"}
+                            />
+                            <LinkButton
+                                className={"header-button"}
+                                path={"/getAllAppointments"}
+                                title={"Get All Appointments"}
+                            />
+                        </>
+                    )}
+                </>
+            ) : (
+                <>
+                    <LinkButton
+                        className={"header-button"}
+                        path={"/login"}
+                        title={"Login"}
+                    />
+                    <LinkButton
+                        className={"header-button"}
+                        path={"/register"}
+                        title={"Registrati"}
+                    />
                     <LinkButton
                         className={"header-button"}
                         path={"/register"}
                         title={"Categorie"}
                     />
-
-                    <Link to = '/cart' className='relative'>
-                        <img src = {cart} className='carrello w-6 min-w-5' alt ="cart"/>
-                        <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[13px]'>10</p>
-                    </Link>
                 </>
             )}
         </>
@@ -156,14 +224,17 @@ export const Header = () => {
             </header>
 
             {/* Menu mobile a tendina sotto la navbar */}
-            {isMobileMenuOpen && (
-                <nav
-                    className="mobile-menu"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                >
-                    {renderLinks()}
-                </nav>
-            )}
+            <nav
+                className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}
+                onClick={(e) => {
+                    // Chiudi il menu solo se clicchi sullo sfondo, non sui link
+                    if (e.target === e.currentTarget) {
+                        setIsMobileMenuOpen(false);
+                    }
+                }}
+            >
+                {renderMobileLinks()}
+            </nav>
         </>
     );
 };

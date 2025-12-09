@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css"
 import { Hero } from "../../common/Hero/Hero";
-import ProductList from "../../common/ProductList/ProductList";
+import HeroVideo from "../../common/HeroVideo/HeroVideo";
 
 export const Home = () => {
     return (
         <>
             <Hero />
-            <ProductList />
+            <HeroVideo />
         </>
     )
 }

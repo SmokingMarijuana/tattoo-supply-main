@@ -1,101 +1,199 @@
-import React, { useState, useEffect } from "react";
-import "./Products.css";
-import "../../common/ProductList/ProductList.css";
-import { getAllProducts } from "../../services/apiCalls";
-import ProductCard from "../ProductCard/ProductCard";
-import ProductFilter from "../ProductFilter/ProductFilter";
-import Sidebar from "../../common/Sidebar/Sidebar";
-import inkImage from "../../assets/ink.png";
+import React, { useState, useMemo } from 'react';
+import './Products.css';
+import ProductCard from '../ProductCard/ProductCard';
+import { products } from '../../assets/assets.js';
 
 export const Products = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  // Flatten products array (rimuove il doppio array)
+  const allProducts = products.flat();
+  
+  const [filters, setFilters] = useState({
+    search: '',
+    type: '',
+    brand: '',
+    minPrice: '',
+    maxPrice: ''
+  });
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        setLoading(true);
-        const response = await getAllProducts();
-        setProducts(response.data || []);
-        setError(null);
-      } catch (err) {
-        console.error("Errore nel fetching dei prodotti:", err);
-        setError("Errore nel caricamento dei prodotti");
-        setProducts([]);
-      } finally {
-        setLoading(false);
+  // Estrai valori unici per i filtri
+  const types = useMemo(() => {
+    const uniqueTypes = [...new Set(allProducts.map(p => p.type))];
+    return uniqueTypes.filter(Boolean);
+  }, [allProducts]);
+
+  const brands = useMemo(() => {
+    const uniqueBrands = [...new Set(allProducts.map(p => p.brand).filter(Boolean))];
+    return uniqueBrands.sort();
+  }, [allProducts]);
+
+  // Filtra i prodotti
+  const filteredProducts = useMemo(() => {
+    return allProducts.filter(product => {
+      // Filtro ricerca
+      if (filters.search) {
+        const searchLower = filters.search.toLowerCase();
+        if (!product.name.toLowerCase().includes(searchLower) &&
+            !(product.brand && product.brand.toLowerCase().includes(searchLower))) {
+          return false;
+        }
       }
-    };
 
-    fetchProducts();
-  }, []);
+      // Filtro tipo
+      if (filters.type && product.type !== filters.type) {
+        return false;
+      }
 
-  const handleFilterChange = (value) => {
-    setSearchTerm(value);
+      // Filtro brand
+      if (filters.brand && product.brand !== filters.brand) {
+        return false;
+      }
+
+      // Filtro prezzo minimo
+      if (filters.minPrice && product.price_usd < parseFloat(filters.minPrice)) {
+        return false;
+      }
+
+      // Filtro prezzo massimo
+      if (filters.maxPrice && product.price_usd > parseFloat(filters.maxPrice)) {
+        return false;
+      }
+
+      return true;
+    });
+  }, [allProducts, filters]);
+
+  const handleFilterChange = (filterName, value) => {
+    setFilters(prev => ({
+      ...prev,
+      [filterName]: value
+    }));
   };
 
-  const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
-  };
-
-  const filteredProducts = products
-    .filter((product) =>
-      product.nome.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    .filter((product) =>
-      selectedCategory ? product.category === selectedCategory : true
-    );
-
-  const renderContent = () => {
-    if (loading) {
-      return <div className="products-loading">Caricamento prodotti...</div>;
-    }
-
-    if (error) {
-      return <div className="products-error">{error}</div>;
-    }
-
-    if (products.length === 0) {
-      return <div className="products-empty">Nessun prodotto disponibile</div>;
-    }
-
-    if (filteredProducts.length === 0) {
-      return <div className="products-empty">Nessun prodotto corrisponde alla ricerca.</div>;
-    }
-
-    return (
-      <div className="product-grid">
-        {filteredProducts.map((product) => (
-          <ProductCard
-            key={product.id || product.nome}
-            image={product.image || inkImage}
-            title={product.nome}
-            brand={product.brand}
-            price={product.prezzo}
-          />
-        ))}
-      </div>
-    );
+  const resetFilters = () => {
+    setFilters({
+      search: '',
+      type: '',
+      brand: '',
+      minPrice: '',
+      maxPrice: ''
+    });
   };
 
   return (
-    
     <div className="products-page">
-      
-      <Sidebar onCategorySelect={handleCategorySelect} selectedCategory={selectedCategory} />
-      <div className="products-main-content">
-        <div className="products-header">
+      {/* Sidebar Filtri */}
+      <aside className="products-sidebar">
+        <div className="sidebar-content">
+          <h1 className="sidebar-title">Filtri</h1>
+          
+          {/* Ricerca */}
+          <div className="filter-group">
+            <label className="filter-label">Cerca</label>
+            <input
+              type="text"
+              className="filter-input"
+              placeholder="Nome prodotto..."
+              value={filters.search}
+              onChange={(e) => handleFilterChange('search', e.target.value)}
+            />
+          </div>
+
+          {/* Tipo */}
+          <div className="filter-group">
+            <label className="filter-label">Tipo</label>
+            <select
+              className="filter-select"
+              value={filters.type}
+              onChange={(e) => handleFilterChange('type', e.target.value)}
+            >
+              <option value="">Tutti i tipi</option>
+              {types.map(type => (
+                <option key={type} value={type}>
+                  {type.charAt(0).toUpperCase() + type.slice(1).replace('_', ' ')}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Brand */}
+          <div className="filter-group">
+            <label className="filter-label">Brand</label>
+            <select
+              className="filter-select"
+              value={filters.brand}
+              onChange={(e) => handleFilterChange('brand', e.target.value)}
+            >
+              <option value="">Tutti i brand</option>
+              {brands.map(brand => (
+                <option key={brand} value={brand}>{brand}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* Prezzo Minimo */}
+          <div className="filter-group">
+            <label className="filter-label">Prezzo Min (€)</label>
+            <input
+              type="number"
+              className="filter-input"
+              placeholder="0"
+              value={filters.minPrice}
+              onChange={(e) => handleFilterChange('minPrice', e.target.value)}
+              min="0"
+              step="0.01"
+            />
+          </div>
+
+          {/* Prezzo Massimo */}
+          <div className="filter-group">
+            <label className="filter-label">Prezzo Max (€)</label>
+            <input
+              type="number"
+              className="filter-input"
+              placeholder="1000"
+              value={filters.maxPrice}
+              onChange={(e) => handleFilterChange('maxPrice', e.target.value)}
+              min="0"
+              step="0.01"
+            />
+          </div>
+
+          {/* Reset Button */}
+          <button className="filter-reset-btn" onClick={resetFilters}>
+            Reset Filtri
+          </button>
+
+          {/* Contatore risultati */}
+          <div className="filter-results-count">
+            {filteredProducts.length} prodotto{filteredProducts.length !== 1 ? 'i' : ''} trovato{filteredProducts.length !== 1 ? 'i' : ''}
+          </div>
         </div>
-        <ProductFilter onFilterChange={handleFilterChange} />
+      </aside>
+
+      {/* Area principale con card */}
+      <div className="products-main-content">
         <div className="products-container">
-          {renderContent()}
+          {filteredProducts.length > 0 ? (
+            <div className="product-grid">
+              {filteredProducts.map(product => (
+                <ProductCard
+                  key={product._id}
+                  image={product.image || 'https://via.placeholder.com/300x220?text=No+Image'}
+                  title={product.name}
+                  brand={product.brand || 'N/A'}
+                  price={product.price_usd?.toFixed(2) || '0.00'}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="products-empty">
+              Nessun prodotto trovato con i filtri selezionati.
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Products;

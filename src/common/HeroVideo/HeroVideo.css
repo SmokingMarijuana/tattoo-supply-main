@@ -1,0 +1,83 @@
+
+.testo-video {
+  
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  color: white;
+  text-align: center;
+  line-height: 1.2;
+
+}
+.separator {
+  width: 90vw;
+  height: 2px;
+  margin: 2rem auto;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgb(145, 145, 145) 20%, 
+    rgb(176, 176, 176) 50%, 
+    rgb(54, 54, 54) 80%, 
+    transparent 100%);
+  box-shadow: 0 0 10px rgba(164, 164, 164, 0.5),
+              0 0 20px rgba(118, 118, 118, 0.3);
+  position: relative;
+}
+
+.separator::before,
+.separator::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.separator::before {
+  left: 0;
+}
+
+.separator::after {
+  right: 0;
+}
+.title-video {
+  font-family: 'Cinzel', serif;
+  font-size: 4rem;
+  font-weight: 100;
+  text-shadow: rgba(131, 0, 0, 0.3) 3px 5px;
+  letter-spacing: 0.1em;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  margin: 1.5rem 0;
+  line-height: 1.3;
+  transform: translateY(-40px);
+}
+
+.chrome-cross {
+  display: block;
+  margin: 0 auto;
+  max-width: 40px;
+  height: auto;
+  margin-top: 1rem;
+  transform: translateY(-60px);
+  filter: invert();
+}
+.hero-video-container {
+  width: 100vw;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0.5rem 1.5rem 0.75rem;
+  background-color: #222222;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}

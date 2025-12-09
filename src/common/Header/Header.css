@@ -24,6 +24,7 @@
     flex-direction: column;   /* brand sopra, menu sotto */
     align-items: center;
     padding: 0.5rem 1.5rem 0.75rem;
+    
 }
 
 /* Brand centrale */
@@ -35,6 +36,7 @@
     text-align: center;
     margin-bottom: 0.5rem;
     line-height: 1.2;
+    
 }
 
 /* Wrapper per navbar con link e carrello */
@@ -57,6 +59,8 @@
     font-family: 'Cinzel', serif;
     color: white;
     flex: 1;
+    position: relative;
+    padding-right: 80px; /* spazio per il carrello a destra */
 }
 
 /* Contenitore del carrello */
@@ -64,7 +68,8 @@
     position: absolute;
     right: 0;
     top: 50%;
-    transform: translateY(50%);
+    transform: translateY(100%);
+    
     z-index: 1001;
 }
 
@@ -228,6 +233,59 @@
 
 
 
+/* Carrello posizionato a destra */
+.cart-link-wrapper {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+.cart-link-wrapper:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
 .carrello {
     filter: invert(1);
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    
+}
+
+.cart-badge {
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: bold;
+    line-height: 1;
+    font-family: 'Cinzel', serif;
+}
+
+/* Responsive: carrello su mobile/tablet */
+@media (max-width: 1100px) {
+    .cart-link-wrapper {
+        right: 3.5rem; /* spazio per l'hamburger */
+        top: 0.75rem;
+        transform: none;
+    }
+
+    .cart-link-wrapper:hover {
+        transform: scale(1.1);
+    }
 }
