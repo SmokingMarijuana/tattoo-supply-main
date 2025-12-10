@@ -81,3 +81,19 @@
   flex-direction: column;
   align-items: stretch;
 }
+
+
+
+@media (max-width: 700px) {
+  .title-video {
+    text-align: center;;
+    padding:60px 20px;
+    font-size: 8rem;
+    text-shadow: rgba(131, 0, 0, 0.3) 10px 5px;
+    letter-spacing: 0.1em;
+    
+  }
+
+  .chrome-cross {
+  } 
+}

@@ -62,5 +62,21 @@ app.get("/api/products/category/:id", (req, res) => {
     });
 })
 
+
+app.get("/api/products/ink_products", (req, res) => {
+    const query = "SELECT id, title, price, brand, color, image FROM prodotti_inchiostro";
+
+    db.query(query, (err, results) => {
+        if(err) {
+            return res.status(500).json({error: "Errore query database"});
+        }
+        res.json(results);
+    });  
+});
+
+
+
+
+
 //Avvio server backend
 app.listen(5000, () => console.log("Backend API running on port 5000"));

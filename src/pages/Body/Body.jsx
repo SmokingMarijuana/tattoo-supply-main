@@ -16,6 +16,7 @@ import { Hero } from '../../common/Hero/Hero';
 import {Inchiostro} from '../Inchiostro/Inchiostro';
 import {Macchinette} from '../Macchinette/Macchinette';
 import {Accessori} from '../Accessori/Accessori';
+import ProductDetail from '../ProductDetail/ProductDetail';
 
 
 export const Body = () => {
@@ -28,20 +29,13 @@ export const Body = () => {
                 <Route path="/login" element={<Login />}/>
                 <Route path="/register" element={<Register />}/>
                 <Route path="/profile" element={<Profile />}/>
-                <Route path="/portfolio" element={<GetPortfolio />}/>
-                <Route path="/workers" element={<GetWorkers />}/>
-                <Route path="/updateProfile" element={<UpdateProfile />}/>
-                <Route path="/appointments" element={<Appointments />}/>
                 <Route path="/createAppointment" element={<CreateAppointment />}/>
                 <Route path="/updateAppointment" element={<UpdateAppointment />}/>
                 <Route path="/getAllUsers" element={<GetAllUsers />}/>
                 <Route path="/getAllAppointments" element={<GetAllAppointments />}/>
                 <Route path='/inchiostro' element = {<Inchiostro />}></Route>
-                
                 <Route path='/macchinette' element = {<Macchinette />}></Route>
-                
-                <Route path='/accessori' element = {<Accessori />}></Route>
-
+                <Route path='/product-detail' element = {<ProductDetail />}></Route>
             </Routes>
          </>
      )

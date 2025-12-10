@@ -3,12 +3,11 @@
     height: 70vh;
     min-height: 500px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 100%;
+    width: 90vw;
     overflow: hidden;
     text-align: center;
     font-family: 'Cinzel', serif;
-    margin: 0 0 2rem 0;
+    margin: 0 auto 2rem auto;
     padding: 0;
     position: relative;
     cursor: pointer;
@@ -54,3 +53,17 @@
     letter-spacing: 0.2em;
     font-family: 'Cinzel', serif;
   }
+
+
+
+@media (max-width:700px) {
+  .card-title {
+    font-size: 7rem;
+    letter-spacing: 0.1em;
+  }
+  .card {
+    height: 20vw;
+    min-height: 200px;
+
+  }
+}

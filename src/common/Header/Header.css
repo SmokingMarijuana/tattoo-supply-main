@@ -2,7 +2,7 @@
 
 :root {
     /* altezza base header, adattata in mobile più sotto */
-    --header-height: 80px;
+    --header-height: 160px;
 }
 
 /* -------------------- HEADER -------------------- */
@@ -13,7 +13,7 @@
     left: 0;
     width: 100vw;
     background-color: rgba(0, 0, 0, 1);
-
+    
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -30,7 +30,7 @@
 /* Brand centrale */
 .header-brand {
     font-family: 'Cinzel', serif;
-    font-size: clamp(1rem, 4vw + 0.5rem, 2rem);
+    font-size: clamp(2rem, 4vw + 1rem, 2rem);
     letter-spacing: 0.25em;
     color: white;
     text-align: center;
@@ -60,7 +60,6 @@
     color: white;
     flex: 1;
     position: relative;
-    padding-right: 80px; /* spazio per il carrello a destra */
 }
 
 /* Contenitore del carrello */
@@ -179,59 +178,6 @@
     font-size: 1rem;
 }
 
-/* -------------------- BREAKPOINT: TABLET / MOBILE -------------------- */
-
-@media (max-width: 1100px) {
-    
-
-    .header {
-        padding: 0.5rem 1rem 0.5rem;
-    }
-
-    /* Nascondo i bottoni inline su mobile/tablet */
-    .button-container {
-        display: none;
-    }
-
-    /* Mostro l’hamburger */
-    .hamburger {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-    
-    /* Assicuro che le linee siano visibili */
-    .hamburger-line {
-        display: block !important;
-        visibility: visible !important;
-        background-color: white !important;
-    }
-}
-
-/* -------------------- BREAKPOINT: TELEFONI PICCOLI (iPhone SE ecc.) -------------------- */
-
-@media (max-width: 1100px) {
-    /* Carrello su mobile - posizionato a destra ma con spazio per hamburger */
-    .cart-container {
-        right: 3.5rem; /* spazio per l'hamburger */
-    }
-}
-
-@media (max-width: 768px) {
-    .header-brand {
-        font-size: clamp(0.9rem, 5vw + 0.3rem, 1.5rem);
-        letter-spacing: 0.15em;
-    }
-}
-
-@media (max-width: 480px) {
-    .header-brand {
-        font-size: clamp(0.85rem, 6vw + 0.2rem, 1.3rem);
-        letter-spacing: 0.1em;
-    }
-}
-
-
 
 /* Carrello posizionato a destra */
 .cart-link-wrapper {
@@ -253,9 +199,8 @@
 
 .carrello {
     filter: invert(1);
-    width: 24px;
-    height: 24px;
-    min-width: 24px;
+    width: 1.6rem;
+    height: 1.6rem;
     
 }
 
@@ -277,15 +222,51 @@
     font-family: 'Cinzel', serif;
 }
 
-/* Responsive: carrello su mobile/tablet */
-@media (max-width: 1100px) {
-    .cart-link-wrapper {
-        right: 3.5rem; /* spazio per l'hamburger */
-        top: 0.75rem;
-        transform: none;
+
+
+/* -------------------- MOBILE FIXES (BIG + COMFORTABLE) -------------------- */
+@media (max-width: 768px) {
+
+    :root {
+        --header-height: 125px; /* good height: not small, not huge */
     }
 
-    .cart-link-wrapper:hover {
-        transform: scale(1.1);
+    .header {
+        padding: 1rem 1.2rem; /* more padding for finger-friendly tap */
+    }
+
+    .header-brand {
+        font-size: 4rem;   /* Big but still fits */
+        letter-spacing: 0.18em;
+    }
+    .button-container {
+        display: none; 
+        padding-right: 0;
+    }
+
+    .hamburger {
+        display: block;
+        visibility: visible;
+        top: 1.2rem;
+        right: 1.2rem;
+        width: 32px;  /* bigger hamburger */
+        height: 26px; /* easier to tap */
+    }
+
+    .hamburger-line {
+        height: 4px; /* thicker lines = easier visibility */
+    }
+
+    .mobile-menu {
+        top: var(--header-height);
+        padding: 1.2rem 0 2rem;
+        gap: 1.4rem; /* more space between links */
+    }
+
+    .mobile-menu .header-button {
+        font-size: 1.3rem;  
+        padding: 0.9rem 0;   /* MUCH bigger tap area */
+        width: 100%;
+        text-align: center;
     }
 }
