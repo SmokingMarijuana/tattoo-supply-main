@@ -25,7 +25,7 @@ export const Body = () => {
             <Routes>
                 <Route path="*" element={<Navigate to="/"/>}/>
                 <Route path="/" element={<Home />}/>
-                <Route path="/shop" element={<Products />}/>
+                { /*<Route path="/shop" element={<Products />}/> */ }
                 <Route path="/login" element={<Login />}/>
                 <Route path="/register" element={<Register />}/>
                 <Route path="/profile" element={<Profile />}/>

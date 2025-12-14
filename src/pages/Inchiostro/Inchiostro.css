@@ -1,6 +1,7 @@
+
 .inchiostro-page {
   width: 100vw;
-  min-height: 100vh;
+  min-height: 70vh;
   background-color: #222222;
   padding-top: calc(var(--header-height, 80px) + 2rem);
   padding-bottom: 2rem;
@@ -23,10 +24,9 @@
 
 .inchiostro-title {
   font-family: 'Cinzel', serif;
-  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-size: 8vw;
   color: white;
   margin: 0;
-  font-weight: 600;
   letter-spacing: 2px;
   margin-bottom: 0.5rem;
 }
@@ -54,8 +54,7 @@
 
 .sort-label {
   font-family: 'Cinzel', serif;
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   font-weight: 500;
   letter-spacing: 0.5px;
 }
@@ -102,11 +101,13 @@
   gap: 25px;
   align-items: start;
   padding: 0 2rem;
+  
 }
 
 .ink-card-wrapper {
   opacity: 0;
   animation: dropIn 0.6s ease-out forwards;
+  
 }
 
 @keyframes dropIn {

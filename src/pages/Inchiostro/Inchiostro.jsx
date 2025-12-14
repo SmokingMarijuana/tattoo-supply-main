@@ -8,17 +8,19 @@ export const Inchiostro = () => {
   const [products, setProducts] = useState([]);
   const [sortBy, setSortBy] = useState('default');
 
-  // Fetch dati dal backend
+  /* Fetch dati dal backend */
   useEffect(() => {
     axios.get('http://localhost:5000/api/products/ink_products')
       .then(res => setProducts(res.data))
       .catch(err => console.log(err));
   }, []);
 
-  // Ordinamento prodotti
+  /* Ordinamento prodotti */
   const sortedProducts = useMemo(() => {
     const sorted = [...products];
     
+
+    /*Sorting degli item */
     if (sortBy === 'price-low') {
       sorted.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
     } else if (sortBy === 'price-high') {
@@ -28,10 +30,13 @@ export const Inchiostro = () => {
     return sorted;
   }, [products, sortBy]);
 
+
+
+  /* Return degli elementi*/
   return (
     <div className="inchiostro-page">
       <div className="inchiostro-header">
-        <h1 className="inchiostro-title">Inchiostri</h1>
+        <div className="inchiostro-title">Inchiostri</div>
       </div>
 
       <div className="inchiostro-sort-container">
@@ -48,6 +53,7 @@ export const Inchiostro = () => {
       </div>
 
       <div className="inchiostro-container">
+      {/* Fetching dei prodotti dentro le cad*/}
         {sortedProducts.map((product, index) => (
           <div 
             key={product.id} 

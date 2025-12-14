@@ -57,7 +57,7 @@
 @media (max-width: 768px) {
   .ink-card-title,
   .ink-card-price {
-    font-size: 0.9rem;
+    font-size: 2rem;
   }
   
   .ink-card-content {
@@ -68,7 +68,7 @@
 @media (max-width: 480px) {
   .ink-card-title,
   .ink-card-price {
-    font-size: 0.85rem;
+    font-size: 2rem;
   }
   
   .ink-card-content {
