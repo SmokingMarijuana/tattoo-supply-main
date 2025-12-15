@@ -1,6 +1,8 @@
  import './App.css'
 import { Header } from './common/Header/Header'
 import { Body } from './pages/Body/Body'
+import { Footer } from './pages/Footer/Footer';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -10,6 +12,7 @@ function App() {
 
         <Header />
         <Body />
+        <Footer />
       </div>
       </>
   );

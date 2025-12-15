@@ -48,7 +48,6 @@ export const Header = () => {
     const renderLinks = () => (
         <>
             <LinkButton className={"header-button"} path={"/shop"} title={"Shop"} />
-            <LinkButton className={"header-button"} path={"/portfolio"} title={"Offerte"} />
 
             {rdxToken && tokenExpired === false ? (
                 <>
