@@ -8,7 +8,7 @@ import { LinkButton } from '../LinkButton/LinkButton';
 import { useSelector, useDispatch } from "react-redux";
 import { logout, selectToken } from "../../pages/userSlice";
 import { Link } from 'react-router-dom';
-
+import { getCartCount } from '../../services/cart';
 export const Header = () => {
     const dispatch = useDispatch();
     const rdxToken = useSelector(selectToken);
@@ -16,6 +16,7 @@ export const Header = () => {
     const [decodedToken, setDecodedToken] = useState(null);
     const [tokenExpired, setTokenExpired] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [cartCount, setCartCount] = useState(0);
 
     useEffect(() => {
         if (!rdxToken) {
@@ -40,6 +41,17 @@ export const Header = () => {
         }
     }, [rdxToken]);
 
+    useEffect(() => {
+        try {
+            setCartCount(getCartCount());
+            const handler = (e) => setCartCount((e && e.detail && typeof e.detail.count === 'number') ? e.detail.count : getCartCount());
+            window.addEventListener('cart-updated', handler);
+            return () => window.removeEventListener('cart-updated', handler);
+        } catch (err) {
+            // ignore in SSR or if window is undefined
+        }
+    }, []);
+
     const logOutMe = () => {
         dispatch(logout());
         setIsMobileMenuOpen(false);
@@ -48,6 +60,11 @@ export const Header = () => {
     const renderLinks = () => (
         <>
             <LinkButton className={"header-button"} path={"/shop"} title={"Shop"} />
+
+            <Link to="/cart" className="header-button cart-link" aria-label="Carrello">
+                
+                <span className="cart-badge">{cartCount}</span>
+            </Link>
 
             {rdxToken && tokenExpired === false ? (
                 <>
@@ -64,12 +81,7 @@ export const Header = () => {
                         </>
                     )}
                 </>
-            ) : (
-                <>
-                    <LinkButton className={"header-button"} path={"/login"} title={"Login"} />
-                    <LinkButton className={"header-button"} path={"/register"} title={"Registrati"} />
-                </>
-            )}
+            ) : null}
         </>
     );
 
@@ -96,8 +108,6 @@ export const Header = () => {
                 </>
             ) : (
                 <>
-                    <LinkButton className={"header-button"} path={"/login"} title={"Login"} />
-                    <LinkButton className={"header-button"} path={"/register"} title={"Registrati"} />
                     <LinkButton className={"header-button"} path={"/categories"} title={"Categorie"} />
                 </>
             )}
@@ -114,6 +124,7 @@ export const Header = () => {
                 <div className="button-container">
                     {renderLinks()}
                 </div>
+
 
                 <div
                     className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}

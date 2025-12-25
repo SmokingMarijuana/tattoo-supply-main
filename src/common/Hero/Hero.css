@@ -78,44 +78,33 @@ a:hover {
 
 }
 
-
-
-
-@media (max-width: 1300px) {
-  .hero-title {
-    font-size:2rem;
+@media (max-width:500px) {
+  p {
+    display: none;
   }
+
+  /* Compress hero title on very small screens */
+  .hero-title {
+    font-size: clamp(3rem, 8vw, 2.2rem);
+    letter-spacing: 0.06em;
+    line-height: 1.05;
+    padding: 0 0.8rem; /* avoid overflow */
+    text-wrap: balance;
+    
+  }
+
+  /* Slightly reduce container height so title fits above fold */
   .hero-image {
-    height: 90vh;
-  }
-
-}
-
-
-@media (max-width: 1100px) {
-  .hero-title {
-    font-size:6rem;
-  }
-  .hero-image {
-    height: 90vh;
-  }
-  
-}
-
-
-
-@media (max-width: 750px) {
-  .hero-title {
-    font-size:8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size:10rem;
+    height: 70vh;
+    padding-bottom: 8%;
   }
 
   .hero-text {
+    font-size: clamp(0.95rem, 3.6vw, 1.05rem);
+  }
 
+  .hero-button {
+    font-size: small;
+  font-weight: 300;
   }
 }

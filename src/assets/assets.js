@@ -91,3 +91,27 @@ export const products = [
 ]
 
 ]
+
+
+export const categoriesImages = {
+  
+  Intenze : "https://intenzetattooink.com/cdn/shop/files/FB_2048x2048_bottle_bb5cf347-2b56-4722-b3e8-b136786111f2.jpg?v=1757546352&width=713",
+  World_Famous: "https://www.worldfamoustattooink.com/cdn/shop/files/WFBLKO8-World-Famous-Blackout-8oz_720x.png?v=1719348436",
+  Eternal_Ink: "https://www.eternaltattooink.com/cdn/shop/products/Eternal_Ink_Standard_Colors_Top-25_w_1600x.jpg?v=1676664817",
+  Dynamic: "https://makeupsupply.it/13237-large_default/dynamic-union-black-240ml-colore-tattoo-reach.jpg",
+  Cartucce_RL: "https://makeupsupply.it/18711-large_default/01-rl-round-liner-035mm-cartucce-kwadron-20pz.jpg",  
+  Magnum: "https://www.seventattoosupply.it/wp-content/uploads/2024/06/147936_02_1306-555x555.jpg",
+  Shader: "https://www.sunskintattoo.com/1585-home_default/cartucce-kwadron-9-round-shader.jpg",
+  Punte: "https://gioielli-eshop.it/1356-63367/piercing-in-acciaio-inox-color-argento-ferro-di-cavallo-con-punte.webp",
+  Aghi_RL: "https://www.bodysupply.com/thumbnail/ea/ca/7a/1737384862/KW3005RL-L_400x400.jpg",
+  RS: "https://www.brutustattooshop.com/immagini/prodotti/img_8TYluaghi-microblading-RS.jpg",
+  Grips: "https://www.shoppingtattoo.it/wp-content/uploads/2016/07/grip-due-colori.jpg",
+  Rotative: "https://luciapanimondo.com/wp-content/uploads/mast-Dragonhawk-Wireless-Tattoo-dermografo-macchinetta-8.webp",
+  Bobina: "https://www.maxsignorello.it/wp-content/uploads/2022/06/m100-optimized.jpg",
+  Alimentatori: "https://www.seventattoosupply.it/wp-content/uploads/2018/04/black-nemesis-1-720x720.jpg",
+  Barbell: "https://eu-images.contentstack.com/v3/assets/blt7dcd2cfbc90d45de/blt5cfc1da7dfbc3753/64807d89ee1a7279da523e50/31434-12mm_3_2.jpg?format=pjpg&auto=webp&quality=75%2C90&width=3840",
+}
+
+  
+
+

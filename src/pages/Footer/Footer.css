@@ -1,0 +1,141 @@
+.footer-container {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 2rem 1rem;
+    font-family: 'Cinzel', serif;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    margin: 0.6rem 1rem;
+    min-width: 180px;
+    text-align: center;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.footer-section h4 {
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.footer-section p,
+.footer-section ul,
+.footer-section a {
+    font-size: clamp(0.95rem, 1.8vw, 1rem);
+    line-height: 1.6;
+    color: #ccc;
+    text-decoration: none;
+}
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Make list items and their links white by default (better contrast) */
+.footer-section ul li,
+.footer-section ul li a {
+    color: #fff;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: #cfcfcf;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.04);
+    transition: all 180ms ease;
+    text-decoration: none;
+}
+
+.social-links a svg {
+    display: block;
+}
+
+.social-links a:hover {
+    color: #E1306C;
+    transform: translateY(-2px);
+    background: rgba(225,48,108,0.05);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 1.6rem;
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+    width: 100%;
+}
+
+.footer-bottom p {
+    font-size: clamp(0.85rem, 1.6vw, 0.95rem);
+    color: #aaa;
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .footer-section {
+        text-align: left;
+    }
+    .social-links {
+        justify-content: flex-start;
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    color: white;
+}
+li {
+    color: white;
+}
