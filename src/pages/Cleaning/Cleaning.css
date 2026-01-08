@@ -1,0 +1,177 @@
+
+.inchiostro-page {
+  width: 100vw;
+  min-height: 70vh;
+  background-color: #222222;
+  padding-top: calc(var(--header-height, 80px) + 2rem);
+  padding-bottom: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inchiostro-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1rem 2rem 1rem;
+  text-align: center;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.inchiostro-title {
+  font-family: 'Cinzel', serif;
+  font-size: 8vw;
+  color: white;
+  margin: 0;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.inchiostro-subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-style: italic;
+}
+
+.inchiostro-sort-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+  justify-content: flex-end;
+}
+
+.sort-label {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.sort-select {
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  background-color: #2a2a2a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: white;
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  height: 43px;
+  width:200px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 12px;
+}
+
+.sort-select:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.sort-select option {
+  background-color: #2a2a2a;
+  color: white;
+  padding: 0.5rem;
+}
+
+.inchiostro-container {
+  width: 100%;
+  max-width: 1400px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  align-items: start;
+  padding: 0 2rem;
+  
+}
+
+.ink-card-wrapper {
+  opacity: 0;
+  animation: dropIn 0.6s ease-out forwards;
+  
+}
+
+@keyframes dropIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments for tablets */
+@media (max-width: 1100px) {
+  .inchiostro-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .inchiostro-sort-container {
+    padding: 0 1.5rem;
+  }
+}
+
+/* Responsive adjustments for tablets/small devices */
+@media (max-width: 768px) {
+  .inchiostro-page {
+    padding-top: calc(var(--header-height, 80px) + 1rem);
+  }
+
+  .inchiostro-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 0 1rem;
+  }
+
+  .inchiostro-sort-container {
+    padding: 0 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 480px) {
+  .inchiostro-page {
+    padding-top: calc(var(--header-height, 80px) + 0.75rem);
+  }
+
+  .inchiostro-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 0 0.75rem;
+    
+  }
+
+  .inchiostro-sort-container {
+    padding: 0 0.75rem;
+    
+  }
+
+  .sort-select {
+    width: 100%;
+  }
+}

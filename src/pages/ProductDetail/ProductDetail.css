@@ -24,9 +24,12 @@ a {
 }
 
 .title {
-    font-size: xx-large;
+    font-size: 3rem;
     padding: 20px 0;
-
+    margin-bottom: 70px;
+    margin-top: 10px;
+    
+    font-weight: bold;
 }
 
 .listProduct .item img {
@@ -129,6 +132,26 @@ a {
     justify-content: center;
     align-items: center;
     box-shadow: 0 10px 20px #2f2f2f77;
+    transition: all 0.3s ease;
+}
+
+.detail .buttons button:nth-child(2):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px #2f2f2f99;
+}
+
+.detail .buttons button:nth-child(2).added {
+    background-color: #4ade80;
+    box-shadow: 0 10px 20px #4ade8077;
+}
+
+.detail .buttons button:nth-child(1).checkout-btn {
+    transition: all 0.3s ease;
+}
+
+.detail .buttons button:nth-child(1).checkout-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 

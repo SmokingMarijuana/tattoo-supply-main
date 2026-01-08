@@ -13,7 +13,9 @@ export const Footer = () => {
                     <h4>Quick Links</h4>
                     <ul>
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/products">Products</Link></li>
+                        <li><Link to="/products">Prodotti</Link></li>
+                        <li><Link to="/cart">Carrello</Link></li>
+                    
                     </ul>
                 </div>
                 <div className="footer-section">

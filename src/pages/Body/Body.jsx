@@ -14,9 +14,12 @@ import { GetAllAppointments } from '../GetAllAppointments/GetAllAppointments';
 import { Products } from '../Products/Products';
 import { Hero } from '../../common/Hero/Hero';
 import {Inchiostro} from '../Inchiostro/Inchiostro';
+
+import {Cleaning} from '../Cleaning/Cleaning';
 import {Macchinette} from '../Macchinette/Macchinette';
 import {Accessori} from '../Accessori/Accessori';
 import ProductDetail from '../ProductDetail/ProductDetail';
+import Cart from '../Cart/Cart.jsx';
 
 
 export const Body = () => {
@@ -25,7 +28,9 @@ export const Body = () => {
             <Routes>
                 <Route path="*" element={<Navigate to="/"/>}/>
                 <Route path="/" element={<Home />}/>
-                { /*<Route path="/shop" element={<Products />}/> */ }
+                <Route path="/shop" element={<Products />}/> 
+                <Route path="/cart" element={<Cart />}/> 
+                
                 <Route path="/login" element={<Login />}/>
                 <Route path="/register" element={<Register />}/>
                 <Route path="/profile" element={<Profile />}/>
@@ -36,6 +41,8 @@ export const Body = () => {
                 <Route path='/inchiostro' element = {<Inchiostro />}></Route>
                 <Route path='/macchinette' element = {<Macchinette />}></Route>
                 <Route path='/product-detail' element = {<ProductDetail />}></Route>
+                <Route path='/cleaning' element = {<Cleaning />}></Route>
+            
             </Routes>
          </>
      )

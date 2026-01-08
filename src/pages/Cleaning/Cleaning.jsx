@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import './Inchiostro.css';
+import './Cleaning.css';
 import InkCard from '../../common/InkCard/InkCard';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-export const Inchiostro = () => {
+export const Cleaning = () => {
   const [products, setProducts] = useState([]);
   const [sortBy, setSortBy] = useState('default');
 
@@ -65,8 +65,8 @@ export const Inchiostro = () => {
               to='/product-detail'
               state={{ product }}>
             <InkCard
-              image={product.image_url}
-              title={product.name}
+              image={product.image}
+              title={product.title}
               price={product.price}
             />
             </Link>
@@ -77,4 +77,4 @@ export const Inchiostro = () => {
   )
 }
 
-export default Inchiostro;
+export default Cleaning;

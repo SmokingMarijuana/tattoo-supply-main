@@ -64,16 +64,7 @@
     position: relative;
 }
 
-/* Contenitore del carrello */
-.cart-container {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(100%);
-    
-    z-index: 1001;
-}
-
+ 
 .cart-link {
     display: flex;
     align-items: center;
@@ -243,7 +234,6 @@
         letter-spacing: 0.16em;
     }
     .button-container {
-        display: none; 
         padding-right: 0;
     }
 

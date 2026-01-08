@@ -60,11 +60,8 @@ export const Header = () => {
     const renderLinks = () => (
         <>
             <LinkButton className={"header-button"} path={"/shop"} title={"Shop"} />
+            <LinkButton className={"header-button"} path={"/cart"} title={"Carrello"} />
 
-            <Link to="/cart" className="header-button cart-link" aria-label="Carrello">
-                
-                <span className="cart-badge">{cartCount}</span>
-            </Link>
 
             {rdxToken && tokenExpired === false ? (
                 <>
@@ -88,6 +85,7 @@ export const Header = () => {
     const renderMobileLinks = () => (
         <>
             <LinkButton className={"header-button"} path={"/shop"} title={"Shop"} />
+            <LinkButton className={"header-button"} path={"/cart"} title={"Carrello"} />
             <LinkButton className={"header-button"} path={"/workers"} title={"Marchi"} />
             <LinkButton className={"header-button"} path={"/portfolio"} title={"Offerte"} />
 
