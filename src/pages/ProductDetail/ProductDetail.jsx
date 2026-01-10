@@ -34,6 +34,10 @@ export const ProductDetail = () => {
         navigate('/cart');
     };
 
+    const handleGoBack = () => {
+        navigate(-1);
+    };
+
     return (
         <div className="container">
             <div className="title">Dettagli Prodotto</div>
@@ -64,6 +68,7 @@ export const ProductDetail = () => {
                                 </svg>
                             </span>
                         </button>
+                        <button onClick={handleGoBack} className="back-btn">Torna indietro</button>
                     </div>
                 </div>
             </div>

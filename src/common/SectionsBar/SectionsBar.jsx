@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./SectionsBar.css";
 import { categoriesImages } from "../../assets/assets";
+import { redirect, useNavigate } from "react-router-dom";
 
 const categories = {
   colori: ["Intenze", "World_Famous", "Eternal_Ink", "Dynamic"],
@@ -14,11 +15,19 @@ export const SectionsBar = () => {
   const [active, setActive] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [openSections, setOpenSections] = useState({});
+  const navigate = useNavigate();
 
   const toggleSection = (key) => {
     setOpenSections(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
+
+
+  const handleItemClick = (item) => {
+    navigate("/shop", {state : { selectedCategory: item }});
+  };
+
+  
   return (
     <div
       className="sectionsbar-wrapper"
@@ -59,6 +68,7 @@ export const SectionsBar = () => {
                 <div className="drawer-items" style={{ display: openSections[catKey] ? 'flex' : 'none' }}>
                   {categories[catKey].map(item => (
                     <div key={item} className="drawer-item">
+                     
                       <div className="icon-wrap">
                         <img src={categoriesImages[item] || `https://via.placeholder.com/80?text=${encodeURIComponent(item.split(" ")[0])}`} alt="" className="dropdown-icon" />
                       </div>
@@ -75,7 +85,14 @@ export const SectionsBar = () => {
       <div className={`sectionsbar-dropdown ${active ? "open" : ""}`}>
         {active &&
           categories[active].map(item => (
-            <div key={item} className="dropdown-item">
+            <div key={item} className="dropdown-item"
+            onClick= {() => {
+              handleItemClick(item)
+              console.log(item);  
+            }
+              
+            }
+            >
               <img
                 src={categoriesImages[item]}
 

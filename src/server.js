@@ -55,6 +55,16 @@ app.get("/api/products/machine_products", async (req, res) => {
    }
    
 });
+
+//GET ALL PRODUCTS (per il carrello)
+app.get("/api/products/all", async (req, res) => {
+   try {
+    const allProducts = await products.find({});
+    res.json(allProducts);
+   } catch(err) {
+    res.status(500).json({error: "Errore nel recupero dei dati"});
+   }
+});
 /*
 
 app.get("/api/products", (req, res) => {

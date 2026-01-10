@@ -1,6 +1,7 @@
 .sectionsbar-wrapper {
     position: relative;
     width: 100%;
+    
 }
 
 /* BAR */
@@ -36,7 +37,7 @@
     left: 0.6rem;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 1300;
+    z-index: 130;
 }
 
 .sections-toggle.hidden { display: none !important; }
@@ -90,7 +91,6 @@
 
 .dropdown-item {
     border: 1px solid red;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: black;
     font-size: 1rem;
     cursor: pointer;

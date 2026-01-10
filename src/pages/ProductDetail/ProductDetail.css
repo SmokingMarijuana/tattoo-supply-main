@@ -95,7 +95,8 @@ a {
 
 .detail .buttons {
     display: flex;
-    gap:20px;
+    flex-direction: column;
+    gap: 15px;
     margin-bottom: 20px;
 }
 
@@ -105,6 +106,9 @@ a {
     padding: 15px 20px;
     border-radius: 20px;
     font-size: large;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 
@@ -135,10 +139,6 @@ a {
     transition: all 0.3s ease;
 }
 
-.detail .buttons button:nth-child(2):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px #2f2f2f99;
-}
 
 .detail .buttons button:nth-child(2).added {
     background-color: #4ade80;
@@ -149,10 +149,35 @@ a {
     transition: all 0.3s ease;
 }
 
-.detail .buttons button:nth-child(1).checkout-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+
+.detail .buttons .back-btn {
+    background-color: #444444;
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(68, 68, 68, 0.5);
 }
+
+
+
+.detail .back-btn {
+    width: 100%;
+    background-color: #444444;
+    color: #eee;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 20px;
+    font-size: large;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(68, 68, 68, 0.5);
+    margin-top: 10px;
+}
+
 
 
 

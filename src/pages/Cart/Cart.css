@@ -349,6 +349,35 @@
   transform: translateY(-1px);
 }
 
+/* ======================= BACK BUTTON ======================= */
+
+.back-btn {
+  width: 100%;
+  padding: 16px;
+  background: #444444;
+  color: #eee;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-btn:hover {
+  background: #555555;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(68, 68, 68, 0.5);
+}
+
+.back-btn:active {
+  transform: translateY(0);
+}
+
 /* ======================= PAYMENT METHODS ======================= */
 
 .payment-methods {

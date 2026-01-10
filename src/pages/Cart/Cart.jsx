@@ -2,46 +2,46 @@ import React, { useState, useEffect } from 'react';
 import './Cart.css';
 import axios from 'axios';
 import { getCart, removeFromCart, addToCart, setCart } from '../../services/cart';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
-  /* Fetch dei prodotti inchiostro */
+  /* Fetch di TUTTI i prodotti dal database */
   useEffect(() => {
-    axios.get('http://localhost:5000/api/products/ink_products')
+    axios.get('http://localhost:5000/api/products/all')
       .then(res => setAllProducts(res.data))
       .catch(err => console.log(err));
   }, []);
 
-  /* Carica il carrello e aggiorna quando cambia */
-  useEffect(() => {
+  /* Funzione helper per arricchire il carrello */
+  const enrichCart = (products) => {
     const cart = getCart();
-    const enrichedCart = cart.map(cartItem => {
-      const product = allProducts.find(p => p._id === cartItem.id || p.id === cartItem.id);
+    return cart.map(cartItem => {
+      const product = products.find(p => p._id.toString() === cartItem.id.toString());
       return {
         ...cartItem,
         ...product
       };
-    }).filter(item => item.title);
-    
-    setCartItems(enrichedCart);
-    setLoading(false);
+    }).filter(item => item.name);
+  };
+
+  /* Carica il carrello e aggiorna quando cambia allProducts */
+  useEffect(() => {
+    if (allProducts.length > 0) {
+      const enrichedCart = enrichCart(allProducts);
+      setCartItems(enrichedCart);
+      setLoading(false);
+    }
   }, [allProducts]);
 
   /* Listener per aggiornamenti del carrello */
   useEffect(() => {
     const handleCartUpdate = () => {
-      const cart = getCart();
-      const enrichedCart = cart.map(cartItem => {
-        const product = allProducts.find(p => p._id === cartItem.id || p.id === cartItem.id);
-        return {
-          ...cartItem,
-          ...product
-        };
-      }).filter(item => item.title);
+      const enrichedCart = enrichCart(allProducts);
       setCartItems(enrichedCart);
     };
 
@@ -77,6 +77,10 @@ export const Cart = () => {
     // TODO: Implementare la pagina di checkout
   };
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   if (loading) {
     return <div className="cart-loading">Caricamento...</div>;
   }
@@ -102,11 +106,11 @@ export const Cart = () => {
               {cartItems.map((item) => (
                 <div key={item.id} className="cart-item">
                   <div className="item-image">
-                    <img src={item.image} alt={item.title} />
+                    <img src={item.image_url} alt={item.name} />
                   </div>
                   
                   <div className="item-details">
-                    <h3 className="item-title">{item.title}</h3>
+                    <h3 className="item-title">{item.name}</h3>
                     <p className="item-price">€ {parseFloat(item.price).toFixed(2)}</p>
                   </div>
 
@@ -182,6 +186,13 @@ export const Cart = () => {
               className="checkout-btn"
             >
               Procedi al checkout
+            </button>
+
+            <button 
+              onClick={handleGoBack}
+              className="back-btn"
+            >
+              ← Torna indietro
             </button>
 
             <div className="payment-methods">

@@ -85,8 +85,7 @@
 }
 
 .header-button:hover {
-    text-shadow: 0 0 18px rgba(255, 255, 255, 0.8);
-    transform: translateY(-1px);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1);
 }
 
 /* -------------------- HAMBURGER -------------------- */
