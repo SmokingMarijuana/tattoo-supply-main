@@ -61,6 +61,7 @@ export const Header = () => {
         <>
             <LinkButton className={"header-button"} path={"/shop"} title={"Shop"} />
             <LinkButton className={"header-button"} path={"/cart"} title={"Carrello"} />
+            
 
 
             {rdxToken && tokenExpired === false ? (
@@ -75,6 +76,7 @@ export const Header = () => {
                         <>
                             <LinkButton className={"header-button"} path={"/getAllUsers"} title={"All Users"} />
                             <LinkButton className={"header-button"} path={"/getAllAppointments"} title={"Get All Appointments"} />
+                            <LinkButton className={"header-button"} path={"/products-admin"} title={"Gestione Prodotti"} />
                         </>
                     )}
                 </>
@@ -101,6 +103,7 @@ export const Header = () => {
                         <>
                             <LinkButton className={"header-button"} path={"/getAllUsers"} title={"All Users"} />
                             <LinkButton className={"header-button"} path={"/getAllAppointments"} title={"Get All Appointments"} />
+                            <LinkButton className={"header-button"} path={"/products-admin"} title={"Gestione Prodotti"} />
                         </>
                     )}
                 </>
@@ -115,8 +118,9 @@ export const Header = () => {
     return (
         <>
             <header className="header">
+                
                 <div className="header-bar header-button">
-                    <LinkButton className={"header-brand"} path={"/"} title={"TATTOO SUPPLY"} />
+                    <LinkButton className={"header-brand"} path={"/"} title={"TATTOO SUPPLY SHOP PADOVA"} />
                 </div>
 
                 <div className="button-container">

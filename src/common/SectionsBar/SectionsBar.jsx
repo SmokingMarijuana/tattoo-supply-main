@@ -7,7 +7,7 @@ const categories = {
   colori: ["Intenze", "World_Famous", "Eternal_Ink", "Dynamic"],
   aghi: ["Cartucce_RL", "Magnum", "Shader"],
   aghiClassici: ["Aghi_RL", "RS", "Grips"],
-  macchine: ["Rotative", "Bobina", "Alimentatori"],
+  consumo: ["Soap", "Finish", "AfterCare"],
   piercing: ["Barbell", "Punte"]
 };
 
@@ -46,7 +46,7 @@ export const SectionsBar = () => {
           <li onMouseEnter={() => setActive("colori")}>Colori per tatuaggio</li>
           <li onMouseEnter={() => setActive("aghi")}>Aghi e cartucce</li>
           <li onMouseEnter={() => setActive("aghiClassici")}>Aghi classici e grips</li>
-          <li onMouseEnter={() => setActive("macchine")}>Macchine e alimentatori</li>
+          <li onMouseEnter={() => setActive("consumo")}>Consumo</li>
           <li onMouseEnter={() => setActive("piercing")}>Body piercing</li>
         </ul>
       </div>

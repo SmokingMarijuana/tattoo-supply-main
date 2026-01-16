@@ -8,6 +8,11 @@ export const Inchiostro = () => {
   const [products, setProducts] = useState([]);
   const [sortBy, setSortBy] = useState('default');
 
+  /* Scroll to top on mount */
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   /* Fetch dati dal backend */
   useEffect(() => {
     axios.get('http://localhost:5000/api/products/ink_products')

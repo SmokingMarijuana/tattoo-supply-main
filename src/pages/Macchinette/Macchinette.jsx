@@ -8,6 +8,12 @@ export const Macchinette = () => {
   const [products, setProducts] = useState([])
   const [sortBy, setSortBy] = useState('default')
 
+    /* Scroll to top on mount */
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+  
+    
   /* Fetch dati dal backend */
   useEffect(() => {
     axios

@@ -36,6 +36,7 @@ export const ProductDetail = () => {
 
     const handleGoBack = () => {
         navigate(-1);
+        window.scrollTo(0, 0);
     };
 
     return (

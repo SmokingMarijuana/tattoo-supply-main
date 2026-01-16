@@ -147,6 +147,7 @@ a {
 
 .detail .buttons button:nth-child(1).checkout-btn {
     transition: all 0.3s ease;
+    background: #7c0101;
 }
 
 

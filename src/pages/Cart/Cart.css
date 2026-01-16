@@ -19,7 +19,7 @@
   text-align: center;
   padding: 80px 20px;
   background: rgba(255, 255, 255, 0.03);
-  border-radius: 20px;
+  
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   color: white;
@@ -52,7 +52,7 @@
   background: linear-gradient(135deg, #222222, #111111);
   color: white;
   padding: 14px 40px;
-  border-radius: 50px;
+  
   text-decoration: none;
   font-weight: 600;
   font-size: 1.05rem;
@@ -82,7 +82,7 @@
 
 .cart-items-section {
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
+  
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 25px;
   backdrop-filter: blur(10px);
@@ -124,7 +124,7 @@
   width: 120px;
   height: 120px;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+  
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -147,7 +147,7 @@
 }
 
 .item-price {
-  color: #ff6b6b;
+  color: white;
   font-size: 1.3rem;
   font-weight: 700;
 }
@@ -170,7 +170,7 @@
   align-items: center;
   gap: 8px;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
+  
   padding: 5px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -179,9 +179,9 @@
   width: 35px;
   height: 35px;
   border: none;
-  background: rgba(255, 107, 107, 0.2);
-  color: #ff6b6b;
-  border-radius: 6px;
+  background: rgb(255, 255, 255);
+  color: #690000;
+  
   cursor: pointer;
   font-size: 1.2rem;
   font-weight: 600;
@@ -221,7 +221,7 @@
 .subtotal-price {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #ff6b6b;
+  color: white;
 }
 
 /* ======================= REMOVE BUTTON ======================= */
@@ -231,7 +231,7 @@
   height: 45px;
   border: none;
   background: rgba(255, 107, 107, 0.15);
-  border-radius: 10px;
+  
   cursor: pointer;
   font-size: 1.3rem;
   transition: all 0.3s ease;
@@ -254,12 +254,15 @@
   font-weight: 600;
   padding: 12px 25px;
   
-  border-radius: 10px;
+  
   transition: all 0.3s ease;
   background: rgb(0, 0, 0)
 }
 
-
+.bi {
+  
+  filter:invert()
+}
 
 /* ======================= CART SUMMARY ======================= */
 
@@ -272,7 +275,7 @@
   overflow-y: auto;
   background: #222222;
   
-  border-radius: 20px;
+  
   padding: 30px;
   backdrop-filter: blur(10px);
   animation: slideIn 0.6s ease-out;
@@ -315,7 +318,7 @@
 
 .summary-row.total {
   font-size: 1.3rem;
-  color: #ff6b6b;
+  color: #7c0101;
   font-weight: 700;
 }
 
@@ -324,7 +327,7 @@
 }
 
 .summary-row.total span:last-child {
-  color: #ff6b6b;
+  color: white
 }
 
 /* ======================= CHECKOUT BUTTON ======================= */
@@ -332,10 +335,10 @@
 .checkout-btn {
   width: 100%;
   padding: 16px;
-  background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+  background: #7c0101;
   color: white;
   border: none;
-  border-radius: 12px;
+  
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
@@ -357,7 +360,7 @@
   background: #444444;
   color: #eee;
   border: none;
-  border-radius: 12px;
+  
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;

@@ -89,4 +89,38 @@ export const getAllProducts = async () => {
   return await axios.get(`http://localhost:5000/api/products`);
 };
 
+export const getAllProductsAdmin = async (token) => {
+  return await axios.get(`http://localhost:5000/api/products/all`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const createProduct = async (body, token) => {
+  return await axios.post(`http://localhost:5000/api/products`, body, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  });
+};
+
+export const updateProduct = async (id, body, token) => {
+  return await axios.put(`http://localhost:5000/api/products/${id}`, body, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  });
+};
+
+export const deleteProduct = async (id, token) => {
+  return await axios.delete(`http://localhost:5000/api/products/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
 

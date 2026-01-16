@@ -12,6 +12,7 @@ import { UpdateAppointment } from '../UpdateAppointment/UpdateAppointment';
 import { GetAllUsers } from '../GetAllUsers/GetAllUsers';
 import { GetAllAppointments } from '../GetAllAppointments/GetAllAppointments';
 import { Products } from '../Products/Products';
+import { ProductsAdmin } from '../ProductsAdmin/ProductsAdmin';
 import { Hero } from '../../common/Hero/Hero';
 import {Inchiostro} from '../Inchiostro/Inchiostro';
 
@@ -31,8 +32,6 @@ export const Body = () => {
                 <Route path="/shop" element={<Products />}/> 
                 <Route path="/cart" element={<Cart />}/> 
                 
-                <Route path="/login" element={<Login />}/>
-                <Route path="/register" element={<Register />}/>
                 <Route path="/profile" element={<Profile />}/>
                 <Route path="/createAppointment" element={<CreateAppointment />}/>
                 <Route path="/updateAppointment" element={<UpdateAppointment />}/>

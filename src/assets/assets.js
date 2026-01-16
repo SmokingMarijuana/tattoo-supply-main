@@ -1,5 +1,6 @@
-
-
+import SoapImg from "./images/SectionsBar/soap.png";
+import FinishImg from "./images/SectionsBar/finish.webp";
+import BurroImg from "./images/SectionsBar/burro.webp";
 export const products = [
     [
   {
@@ -110,6 +111,10 @@ export const categoriesImages = {
   Bobina: "https://www.maxsignorello.it/wp-content/uploads/2022/06/m100-optimized.jpg",
   Alimentatori: "https://www.seventattoosupply.it/wp-content/uploads/2018/04/black-nemesis-1-720x720.jpg",
   Barbell: "https://eu-images.contentstack.com/v3/assets/blt7dcd2cfbc90d45de/blt5cfc1da7dfbc3753/64807d89ee1a7279da523e50/31434-12mm_3_2.jpg?format=pjpg&auto=webp&quality=75%2C90&width=3840",
+  Soap: SoapImg,
+  Finish: FinishImg,
+  AfterCare: BurroImg
+  
 }
 
   

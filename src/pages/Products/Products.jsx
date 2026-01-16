@@ -10,6 +10,11 @@ export const Products = () => {
   const [sortBy, setSortBy] = useState('default');
 
 
+    /* Scroll to top on mount */
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+  
 
   const location = useLocation();
   const selectedCategory = location.state?.selectedCategory;
